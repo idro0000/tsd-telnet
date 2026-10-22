@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Полноэкранная тема без ActionBar: на маленьком экране ТСД дорога каждая строка.
+         Меню открывается клавишей MENU или долгим нажатием по терминалу. -->
+    <style name="AppTheme" parent="@android:style/Theme.Holo.NoActionBar.Fullscreen">
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+</resources>
