@@ -233,7 +233,7 @@ public class Harness {
         check("\\0", TelnetConfig.unescape("\\0").equals("\u0000"), "");
         check("слово CR", TelnetConfig.unescape("CR").equals("\r"), "");
         check("слово CRLF", TelnetConfig.unescape("CRLF").equals("\r\n"), "");
-        check("обычный текст не портится", TelnetConfig.unescape("kladovshik").equals("kladovshik"), "");
+        check("обычный текст не портится", TelnetConfig.unescape("user01").equals("user01"), "");
         check("обратный слэш", TelnetConfig.unescape("a\\\\b").equals("a\\b"), TelnetConfig.unescape("a\\\\b"));
     }
 
@@ -469,7 +469,7 @@ public class Harness {
                 + "enter=CR\n"
                 + "\n"
                 + "[auth]\n"
-                + "login=kladovshik\n"
+                + "login=test_user\n"
                 + "password=sekret\n"
                 + "prompt_login=Логин:\n"
                 + "prompt_password=Пароль:\n"
@@ -544,7 +544,7 @@ public class Harness {
 
         check("состояние «подключено» получено", connected[0] >= 1, "раз=" + connected[0]);
         check("ошибок соединения нет", errors.isEmpty(), errors.toString());
-        check("логин отправлен из файла", received.size() >= 1 && received.get(0).equals("kladovshik"), received.toString());
+        check("логин отправлен из файла", received.size() >= 1 && received.get(0).equals("test_user"), received.toString());
         check("пароль отправлен из файла", received.size() >= 2 && received.get(1).equals("sekret"), received.toString());
         check("экран принял меню склада", row(screen, 0).contains("Склад"), "[" + row(screen, 0) + "]");
         check("инверсия на заголовке", (screen.rawFlags()[0] & TerminalScreen.FLAG_REVERSE) != 0, "flags=" + screen.rawFlags()[0]);
